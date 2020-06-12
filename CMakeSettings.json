@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "name": "Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "cmakeToolchain": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake",
+      "buildRoot": "${projectDir}\\build\\windows\\debug",
+      "installRoot": "${projectDir}\\build\\install",
+      "variables": [
+        { "name": "VCPKG_DEFAULT_TRIPLET", "value": "x64-windows" }
+      ]
+    },
+    {
+      "name": "Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "cmakeToolchain": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake",
+      "installRoot": "${projectDir}\\build\\install",
+      "buildRoot": "${projectDir}\\build\\windows\\release",
+      "variables": [
+        { "name": "VCPKG_DEFAULT_TRIPLET", "value": "x64-windows" }
+      ]
+    }
+  ]
+}
