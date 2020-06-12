@@ -21,9 +21,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
 # Install
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
-if(WIN32 AND VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
-  install(CODE "
-    file(GLOB libraries \"$<TARGET_FILE_DIR:${PROJECT_NAME}>/*.dll\")
-    file(INSTALL $\{libraries} DESTINATION \"${CMAKE_INSTALL_PREFIX}/bin\")
-  ")
-endif()
+install(CODE "
+  file(GLOB libraries \"$<TARGET_FILE_DIR:${PROJECT_NAME}>/*.dll\")
+  file(INSTALL $\{libraries} DESTINATION \"${CMAKE_INSTALL_PREFIX}/bin\")
+")
